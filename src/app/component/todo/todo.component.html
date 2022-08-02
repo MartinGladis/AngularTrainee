@@ -1,0 +1,12 @@
+<section>
+  <mat-list>
+    
+    <mat-list-item *ngFor="let todo of getTodoList; index as i">
+      <div (click)="changeState(i)">
+        <span class='material-icons' [attr.data-done]="todo.done">{{ getIconName(i) }}</span>
+        {{ todo.name }}
+      </div>
+      <span class='material-icons trash' (click)="deleteTodo(i)">delete</span>
+    </mat-list-item>
+  </mat-list>
+</section>
