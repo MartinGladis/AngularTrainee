@@ -1,0 +1,22 @@
+.material-icons {
+    margin-right: 5px;
+}
+
+mat-list-item {
+    div, .trash{
+        cursor: pointer;
+    }
+
+    margin-bottom: 10px;
+}
+
+.trash {
+    margin-left: auto;
+    border-radius: 50%;
+    background-color: rgb(255, 190, 51);
+    padding: 10px;
+}
+
+[data-done=true] {
+    color: green;
+}
