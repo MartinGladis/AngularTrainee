@@ -1,12 +1,22 @@
 <section>
   <mat-list>
-    
-    <mat-list-item *ngFor="let todo of getTodoList; index as i">
-      <div (click)="changeState(i)">
-        <span class='material-icons' [attr.data-done]="todo.done">{{ getIconName(i) }}</span>
+    Zrobione
+    <mat-list-item *ngFor="let todo of getTodoList | done:true">
+      <div (click)="changeState(todo.id)">
+        <span class='material-icons color-green'>check_circle</span>
         {{ todo.name }}
       </div>
-      <span class='material-icons trash' (click)="deleteTodo(i)">delete</span>
+      <span class='material-icons trash' (click)="deleteTodo(todo.id)">delete</span>
+    </mat-list-item>
+  </mat-list>
+  <mat-list>
+    Niezrobione
+    <mat-list-item *ngFor="let todo of getTodoList | done:false">
+      <div (click)="changeState(todo.id)">
+        <span class='material-icons'>radio_button_unchecked</span>
+        {{ todo.name }}
+      </div>
+      <span class='material-icons trash' (click)="deleteTodo(todo.id)">delete</span>
     </mat-list-item>
   </mat-list>
 </section>

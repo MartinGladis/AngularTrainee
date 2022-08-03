@@ -14,20 +14,12 @@ export class TodoComponent {
     return this.service.todos;
   }
 
-  getIconName(index: number) : string {
-    if (this.service.getDoneFlagByIndex(index)) {
-      return "check_circle";
-    } else {
-      return "radio_button_unchecked";
-    }
+  changeState(id: number) {
+    this.service.changeDoneFlag(id);
   }
 
-  changeState(index: number) {
-    this.service.changeDoneFlag(index);
-  }
-
-  deleteTodo(index: number) {
-    this.service.deleteTodo(index);
+  deleteTodo(id: number) {
+    this.service.deleteTodo(id);
   }
 
 }

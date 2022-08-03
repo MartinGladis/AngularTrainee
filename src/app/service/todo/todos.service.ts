@@ -8,12 +8,20 @@ export class TodosService {
 
   todos: Todo[] = [];
 
-  addTask(todo: Todo) {
+  currentId: number = 1;
+
+  addTask(name: string) {
+    var todo: Todo = {
+      id: this.currentId++,
+      name: name,
+      done: false
+    }
     this.todos.push(todo);
     console.log(this.todos);
   }
 
-  changeDoneFlag(index: number) {
+  changeDoneFlag(id: number) {
+    var index = this.todos.findIndex(list => list.id === id)
     if (this.todos[index].done) {
       this.todos[index].done = false;
     } else {
@@ -22,11 +30,12 @@ export class TodosService {
     console.log(this.todos);
   }
 
-  getDoneFlagByIndex(index: number) {
-    return this.todos[index].done;
+  getDoneFlagById(id: number) {
+    return this.todos.find(list => list.id === id)?.done;
   }
 
-  deleteTodo(index: number) {
+  deleteTodo(id: number) {
+    var index = this.todos.findIndex(list => list.id === id)
     this.todos.splice(index, 1);
     console.log(this.todos);
   }

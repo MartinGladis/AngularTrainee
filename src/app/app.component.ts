@@ -15,10 +15,10 @@ export class AppComponent {
   constructor (private service: TodosService) {}
 
   add() {
-    this.service.addTask({
-      name: this.todo.nativeElement.value, 
-      done: false
-    });
+    var value = this.todo.nativeElement.value;
+    if (value) {
+      this.service.addTask(value);
+    }
     this.todo.nativeElement.value = "";
   }
 }
