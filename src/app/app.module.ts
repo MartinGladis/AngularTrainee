@@ -9,6 +9,8 @@ import { MatListModule } from '@angular/material/list';
 import { TodoComponent } from './component/todo/todo.component';
 import { MatIconModule } from '@angular/material/icon';
 import { DonePipe } from './pipe/done.pipe';
+import { SuccessNotificationComponent } from './component/success-notification/success-notification.component';
+import { ErrorNotificationComponent } from './component/error-notification/error-notification.component';
 
 
 
@@ -16,7 +18,9 @@ import { DonePipe } from './pipe/done.pipe';
   declarations: [
     AppComponent,
     TodoComponent,
-    DonePipe
+    DonePipe,
+    SuccessNotificationComponent,
+    ErrorNotificationComponent
   ],
   imports: [
     BrowserModule,

@@ -6,3 +6,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 section {
     margin: 20px;
 }
+
+app-success-notification,
+app-error-notification {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+app-success-notification {
+    background-color:rgb(80, 226, 80);
+}
+
+app-error-notification {
+    background-color: rgb(226, 41, 28);
+}

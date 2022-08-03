@@ -7,7 +7,7 @@ import { Todo } from '../model/todo';
 })
 export class DonePipe implements PipeTransform {
 
-  transform(todos: Todo[], done: boolean): Todo[] {
+  transform(todos: Todo[], done: boolean = true): Todo[] {
     var output: Todo[] = [];
     todos.forEach(todo => {
       if (todo.done === done) {

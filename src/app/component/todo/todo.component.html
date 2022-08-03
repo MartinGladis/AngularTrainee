@@ -1,6 +1,6 @@
 <section>
   <mat-list>
-    Zrobione
+    <div *ngIf="(getTodoList | done:true).length">Zrobione</div>
     <mat-list-item *ngFor="let todo of getTodoList | done:true">
       <div (click)="changeState(todo.id)">
         <span class='material-icons color-green'>check_circle</span>
@@ -10,7 +10,7 @@
     </mat-list-item>
   </mat-list>
   <mat-list>
-    Niezrobione
+    <div *ngIf="(getTodoList | done:false).length">Niezrobione</div>
     <mat-list-item *ngFor="let todo of getTodoList | done:false">
       <div (click)="changeState(todo.id)">
         <span class='material-icons'>radio_button_unchecked</span>
