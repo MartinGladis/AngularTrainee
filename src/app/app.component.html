@@ -5,5 +5,5 @@
   </mat-form-field>
   <button mat-button color="primary" (click)="add()">Add</button>
 </section>
-<ng-container #container class="notification"></ng-container>
-<app-todo></app-todo>
+<ng-container #container></ng-container>
+<app-todo (outputMessage)="renderOutputNotification($event)"></app-todo>
