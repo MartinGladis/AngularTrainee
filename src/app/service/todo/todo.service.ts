@@ -4,7 +4,7 @@ import { Todo } from 'src/app/model/todo';
 @Injectable({
   providedIn: 'root'
 })
-export class TodosService {
+export class TodoService {
 
   todos: Todo[] = [];
 

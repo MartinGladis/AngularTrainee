@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RendererNotyficationService } from 'src/app/service/renderer-notyfication/renderer-notyfication.service';
-import { TodosService } from 'src/app/service/todos/todos.service';
+import { RendererNotificationService } from 'src/app/service/renderer-notification/renderer-notification.service';
+import { TodoService } from 'src/app/service/todo/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -11,7 +11,7 @@ export class TodoComponent {
 
   @Output() outputMessage = new EventEmitter<{message: string, type: string}>();
 
-  constructor (private todoService: TodosService, private renderService: RendererNotyficationService) {}
+  constructor (private todoService: TodoService, private renderService: RendererNotificationService) {}
 
   get getTodoList() {
     return this.todoService.todos;
@@ -19,6 +19,12 @@ export class TodoComponent {
 
   changeState(id: number) {
     this.todoService.changeDoneFlag(id);
+    if (this.todoService.getDoneFlagById(id)) {
+      this.outputMessage.emit({
+        message: "Todo done",
+        type: "success"
+      });
+    }
   }
 
   deleteTodo(id: number) {

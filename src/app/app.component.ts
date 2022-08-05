@@ -1,8 +1,6 @@
-import { Component, ViewChild, ElementRef, ViewContainerRef, Output } from '@angular/core';
-import { ErrorNotificationComponent } from './component/error-notification/error-notification.component';
-import { SuccessNotificationComponent } from './component/success-notification/success-notification.component';
-import { RendererNotyficationService } from './service/renderer-notyfication/renderer-notyfication.service';
-import { TodosService } from './service/todos/todos.service';
+import { Component, ViewChild, ElementRef, ViewContainerRef } from '@angular/core';
+import { RendererNotificationService } from './service/renderer-notification/renderer-notification.service';
+import { TodoService as TodoService } from './service/todo/todo.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +16,7 @@ export class AppComponent {
   @ViewChild('container', { read: ViewContainerRef, static: true })
   private container!: ViewContainerRef
 
-  constructor ( private todoService: TodosService, private rendererService: RendererNotyficationService) {}
+  constructor ( private todoService: TodoService, private rendererService: RendererNotificationService) {}
 
   add() {
     var value = this.todo.nativeElement.value;
